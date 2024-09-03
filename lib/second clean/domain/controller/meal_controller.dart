@@ -1,6 +1,8 @@
 import 'dart:developer';
 
-import '../../data/repository/meal_repository.dart';
+import 'package:recipe_app/second%20clean/data/model/meal_API_data_mdoel.dart';
+
+import '../../data/repository/meal_data_repository.dart';
 
 class MealDomainController {
   final String idMeal;
@@ -23,16 +25,24 @@ class MealDomainController {
       this.strYoutube);
 }
 
-updateMealData() {
-  MealDomainController(
-      randomMealRequestBodyDecode['meals'][0]['idMeal'],
-      randomMealRequestBodyDecode['meal'][0]['strMeal'],
-      randomMealRequestBodyDecode['meal'][0]['strCategory'],
-      randomMealRequestBodyDecode['meal'][0]['strArea'],
-      randomMealRequestBodyDecode['meal'][0]['strInstructions'],
-      randomMealRequestBodyDecode['meal'][0]['strMealThumb'],
-      randomMealRequestBodyDecode['meal'][0]['strTags'],
-      randomMealRequestBodyDecode['meal'][0]['strYoutube']);
+Future<void> updateMealData() async {
+  MealDataRepository mealDataRepository = MealDataRepository();
+  SingleMeal singleMeal = mealDataRepository.singleMeal;
 
-  log(randomMealRequestBodyDecode['meals'][0]['idMeal'],);
+  MealDomainController(
+    singleMeal.idMeal,
+    singleMeal.strMeal,
+    singleMeal.strCategory,
+    singleMeal.strArea,
+    singleMeal.strInstructions,
+    singleMeal.strMealThumb,
+    singleMeal.strTags,
+    singleMeal.strYoutube,
+
+    // log(randomMealRequestBodyDecode['meals'][0]['idMeal'],
+  );
+}
+
+ void main() {
+  updateMealData();
 }

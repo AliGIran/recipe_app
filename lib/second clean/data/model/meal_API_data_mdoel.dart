@@ -116,7 +116,7 @@ class SingleMeal {
       this.dateModified);
 
   // Factory method to create a FoodModel from JSON
-  /*factory SingleMeal.fromJson(Map<String, dynamic> json) {
+  factory SingleMeal.fromJson(Map<String, dynamic> json) {
     return SingleMeal(
         json['idmeal'],
         json['strMeal'],
@@ -171,5 +171,5 @@ class SingleMeal {
         json['strImageSource'],
         json['strCreativeCommonsConfirmed'],
         json['dateModified']);
-  }*/
+  }
 }
